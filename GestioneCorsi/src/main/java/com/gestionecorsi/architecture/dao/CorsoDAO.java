@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
@@ -113,11 +114,45 @@ public class CorsoDAO implements DAOConstants {
 		}
 		return corso;
 	}
-	
-	// TODO aggiungi metodo getInizioUltimoCorso(in conn:Connection): Corso
-	
-	// TODO aggiungi metodo getDurataGiorni(in conn:Connection, in codCorso:long): int
-	
+
+	public Date getInizioUltimoCorso(Connection conn) throws DAOException {
+		Date data = null;
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT_INIZIO_ULTIMO_CORSO);
+			if (rs.next())
+				data = new java.util.Date(rs.getDate(1).getTime());
+			rs.close();
+
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return data;
+	}
+
+	public int getDurataGiorni(Connection conn, long codCorso) throws DAOException {
+		int giorni = 0;
+		try {
+			Corso corso = getByID(conn, codCorso);
+			if (corso != null) {
+				Date inizio = corso.getDataInizioCorso();
+				Date fine = corso.getDataFineCorso();
+
+				PreparedStatement pstmt = conn.prepareStatement(SELECT_DURATA_CORSO);
+				pstmt.setDate(1, new java.sql.Date(inizio.getTime()));
+				pstmt.setDate(2, new java.sql.Date(fine.getTime()));
+				ResultSet rs = pstmt.executeQuery();
+				if (rs.next())
+					giorni = rs.getInt(1);
+				rs.close();
+			}
+
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return giorni;
+	}
+
 	// TODO aggiungi metodo getNumeroCommenti(in conn:Connection): int
 
 }
