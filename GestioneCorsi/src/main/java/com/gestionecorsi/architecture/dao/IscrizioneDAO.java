@@ -76,7 +76,7 @@ public class IscrizioneDAO implements DAOConstants{
 	}
 	
 	
-	public long corsoFrequentato(Connection conn) throws DAOException {
+	public long getCorsoPiuFrequentato(Connection conn) throws DAOException {
 		long corso = 0;
 		
 		try {
