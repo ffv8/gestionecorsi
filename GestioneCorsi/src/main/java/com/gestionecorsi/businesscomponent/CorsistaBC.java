@@ -7,18 +7,18 @@ import com.gestionecorsi.architecture.dao.CorsistaDAO;
 import com.gestionecorsi.architecture.dao.DAOException;
 import com.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.gestionecorsi.businesscomponent.model.Corsista;
-import com.max.architecture.dao.ArticoloDAO;
-import com.max.businesscomponent.model.Articolo;
+
+/*autore Carraro Federico*/
 
 public class CorsistaBC {
 	
 	private Connection conn;
-	private CorsistaIdGenerator idGen;
+	private CorsistaIDGenerator idGen;
 	
 	public CorsistaBC()
 	{
 		conn=DBAccess.getConnection();/*apro la connessione*/
-		idGen=CorsistaIdGenerator.getInstance();/*creo la sequenza*/
+		idGen=CorsistaIDGenerator.getInstance();/*creo la sequenza*/
 		
 	}
 	
