@@ -20,7 +20,7 @@ create table corsista(
 cod_corsista int,
 nome_corsista varchar2(30) not null,
 cognome_corsista varchar2(30) not null,
-precedenti_formativi boolean not null,
+precedenti_formativi number(1,0) not null,
 constraint p_cod_corsista primary key(cod_corsista)
 );
 
@@ -34,7 +34,7 @@ costo_corso number(7,2) not null,
 commenti_corso varchar2(200) not null,
 aula_corso varchar2(30) not null,
 constraint p_cod_corso primary key(cod_corso),
-constraint f_cod_docente foreign key(cod_docente) references(docente) on delete cascade
+constraint f_cod_docente foreign key(cod_docente) references docente(cod_docente) on delete cascade
 );
 
 create table iscrizione(
@@ -49,4 +49,3 @@ constraint p_iscrizione primary key(cod_corsista, cod_corso)
 -- sequenze
 create sequence corso_seq;
 create sequence corsista_seq;
-
