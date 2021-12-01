@@ -127,7 +127,7 @@ public class CorsistaDAO implements DAOConstants {
 		
 		try
 		{
-			ps=conn.prepareStatement(SELECT_CORSISTA_BYPK);
+			ps=conn.prepareStatement(SELECT_CORSISTA_BYID);
 			ps.setLong(1, codCorsista);
 			ResultSet rs =ps.executeQuery();
 			if(rs.next())
