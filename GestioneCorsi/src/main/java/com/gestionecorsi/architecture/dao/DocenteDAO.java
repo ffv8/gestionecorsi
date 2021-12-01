@@ -9,9 +9,6 @@ import java.sql.Statement;
 import com.gestionecorsi.businesscomponent.models.Docente;
 
 public class DocenteDAO implements DAOConstants {
-	
-	private DocenteDAO() throws DAOException {}
-	
 	public static DocenteDAO getFactory() throws DAOException {
 		return new DocenteDAO();
 	}
