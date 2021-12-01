@@ -153,6 +153,19 @@ public class CorsoDAO implements DAOConstants {
 		return giorni;
 	}
 
-	// TODO aggiungi metodo getNumeroCommenti(in conn:Connection): int
+	public int getNumeroCommenti(Connection conn) throws DAOException {
+		int n_commenti = 0;
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(SELECT_NUM_COMMENTI);
+			if (rs.next())
+				n_commenti = rs.getInt(1);
+			rs.close();
+
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return n_commenti;
+	}
 
 }

@@ -31,7 +31,7 @@ nome_corso varchar2(30) not null,
 data_inizio_corso date not null,
 data_fine_corso date not null,
 costo_corso number(7,2) not null,
-commenti_corso varchar2(200) not null,
+commenti_corso varchar2(200),
 aula_corso varchar2(30) not null,
 constraint p_cod_corso primary key(cod_corso),
 constraint f_cod_docente foreign key(cod_docente) references docente(cod_docente) on delete cascade

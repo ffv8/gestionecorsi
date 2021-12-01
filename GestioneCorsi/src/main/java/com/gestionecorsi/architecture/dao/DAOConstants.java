@@ -7,5 +7,5 @@ public interface DAOConstants {
 	String DELETE_CORSO = "delete from corso where cod_corso = ?";
 	String SELECT_INIZIO_ULTIMO_CORSO = "select data_inizio_corso from corso where data_inizio_corso = (select max(data_inizio_corso) from corso) fetch first 1 rows only";
 	String SELECT_DURATA_CORSO = "select workingdays(?, ?) from dual";
-	// TODO aggiungi query SELECT_NUM_COMMENTI
+	String SELECT_NUM_COMMENTI = "select count(commenti_corso) from corso where trim(commenti_corso) is not null";
 }
