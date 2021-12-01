@@ -60,13 +60,13 @@ public class CorsistaDAO implements DAOConstants {
 		}
 	}
 	
-	public void delete(Connection conn, Corsista model) throws DAOException {
+	public void delete(Connection conn, long codCorsista) throws DAOException {
 		PreparedStatement ps;
 		
 		try
 		{
 			ps=conn.prepareStatement(DELETE_CORSISTA);
-			ps.setLong(1, model.getCodCorsista());
+			ps.setLong(1,codCorsista);
 			ps.execute();
 			conn.commit();/*lo devo fare perchè l'autocommit è a false*/
 			
@@ -118,7 +118,7 @@ public class CorsistaDAO implements DAOConstants {
 	}
 
 	
-	public Corsista getById(Connection conn, long codCorsista) throws DAOException {
+	public Corsista getByID(Connection conn, long codCorsista) throws DAOException {
 		/*ricerca in base alla chiave primaria*/
 		
 		PreparedStatement ps;
