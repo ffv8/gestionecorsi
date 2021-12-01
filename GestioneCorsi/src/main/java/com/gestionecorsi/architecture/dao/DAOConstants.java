@@ -8,4 +8,5 @@ public interface DAOConstants {
 	String SELECT_INIZIO_ULTIMO_CORSO = "select data_inizio_corso from corso where data_inizio_corso = (select max(data_inizio_corso) from corso) fetch first 1 rows only";
 	String SELECT_DURATA_CORSO = "select workingdays(?, ?) from dual";
 	String SELECT_NUM_COMMENTI = "select count(commenti_corso) from corso where trim(commenti_corso) is not null";
+	String SELECT_CORSO_SEQ = "select corso_seq.nextval from dual";
 }
