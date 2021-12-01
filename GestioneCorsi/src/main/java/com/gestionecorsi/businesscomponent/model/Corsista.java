@@ -4,36 +4,36 @@ package com.gestionecorsi.businesscomponent.model;
 
 public class Corsista {
 
-	private long cod_corsista;
-	private String nome_corsista;
-	private String cognome_corsista;
-	private boolean precedenti_formativi;
+	private long codCorsista;
+	private String nomeCorsista;
+	private String cognomeCorsista;
+	private boolean precedentiFormativi;
 	
 	
 	
-	public long getCod_corsista() {
-		return cod_corsista;
+	public long getCodCorsista() {
+		return codCorsista;
 	}
-	public void setCod_corsista(long cod_corsista) {
-		this.cod_corsista = cod_corsista;
+	public void setCodCorsista(long codCorsista) {
+		this.codCorsista = codCorsista;
 	}
-	public String getNome_corsista() {
-		return nome_corsista;
+	public String getNomeCorsista() {
+		return nomeCorsista;
 	}
-	public void setNome_corsista(String nome_corsista) {
-		this.nome_corsista = nome_corsista;
+	public void setNomeCorsista(String nomeCorsista) {
+		this.nomeCorsista = nomeCorsista;
 	}
-	public String getCognome_corsista() {
-		return cognome_corsista;
+	public String getCognomeCorsista() {
+		return cognomeCorsista;
 	}
-	public void setCognome_corsista(String cognome_corsista) {
-		this.cognome_corsista = cognome_corsista;
+	public void setCognomeCorsista(String cognomeCorsista) {
+		this.cognomeCorsista = cognomeCorsista;
 	}
-	public boolean getPrecedenti_formativi() {
-		return precedenti_formativi;
+	public boolean getPrecedentiFormativi() {
+		return precedentiFormativi;
 	}
-	public void setPrecedenti_formativi(boolean precedenti_formativi) {
-		this.precedenti_formativi = precedenti_formativi;
+	public void setPrecedentiFormativi(boolean precedentiFormativi) {
+		this.precedentiFormativi = precedentiFormativi;
 	}
 	
 }
