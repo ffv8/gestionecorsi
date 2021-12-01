@@ -2769,6 +2769,7 @@
 											"top": 583,
 											"width": 327.72314453125,
 											"height": 13,
+											"underline": true,
 											"text": "+getFactory(): DocenteDAO",
 											"horizontalAlignment": 0
 										},
@@ -2803,7 +2804,7 @@
 											"top": 613,
 											"width": 327.72314453125,
 											"height": 13,
-											"text": "+getDocentePiuCorsi(conn: Connection): Docente",
+											"text": "+getAll(conn: Connection): Docente[*]",
 											"horizontalAlignment": 0
 										}
 									],
@@ -5453,7 +5454,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 1365,
-											"top": 102,
+											"top": 117,
 											"width": 238,
 											"height": 13,
 											"text": "DAOConstants"
@@ -5488,7 +5489,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 1360,
-									"top": 95,
+									"top": 110,
 									"width": 248,
 									"height": 25,
 									"stereotypeLabel": {
@@ -5525,7 +5526,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 125,
+											"top": 140,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_CORSISTA",
@@ -5542,7 +5543,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 140,
+											"top": 155,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_CORSO",
@@ -5559,7 +5560,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 155,
+											"top": 170,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_DOCENTE",
@@ -5576,7 +5577,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 170,
+											"top": 185,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_AMMINISTRATORE",
@@ -5593,7 +5594,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 185,
+											"top": 200,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_ISCRIZIONE",
@@ -5610,7 +5611,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 200,
+											"top": 215,
 											"width": 238,
 											"height": 13,
 											"text": "+DELETE_CORSO",
@@ -5627,7 +5628,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 215,
+											"top": 230,
 											"width": 238,
 											"height": 13,
 											"text": "+DELETE_CORSISTA",
@@ -5644,7 +5645,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 230,
+											"top": 245,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_AMMINISTRATORE_BYID",
@@ -5661,7 +5662,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 245,
+											"top": 260,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_DOCENTE_BYID",
@@ -5678,7 +5679,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 260,
+											"top": 275,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_N_ISCRITTI_CORSO",
@@ -5695,7 +5696,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 275,
+											"top": 290,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_CORSO_FREQUENTATO",
@@ -5712,7 +5713,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 290,
+											"top": 305,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_CORSISTA_BYID",
@@ -5729,7 +5730,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 305,
+											"top": 320,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_CORSO_BYID",
@@ -5746,7 +5747,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 320,
+											"top": 335,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_CORSO_ULTIMO",
@@ -5763,7 +5764,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 335,
+											"top": 350,
 											"width": 238,
 											"height": 13,
 											"text": "+SELECT_DURATA_CORSO",
@@ -5780,27 +5781,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1365,
-											"top": 350,
-											"width": 238,
-											"height": 13,
-											"text": "+SELECT_NUM_COMMENTI",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF9bHKYNKVzocE=",
-											"_parent": {
-												"$ref": "AAAAAAF9bFgBVoJYwhk="
-											},
-											"model": {
-												"$ref": "AAAAAAF9bHKYJaVknNw="
-											},
-											"font": "Arial;13;0",
-											"left": 1365,
 											"top": 365,
 											"width": 238,
 											"height": 13,
-											"text": "+SELECT_DOCENTE_PIU_CORSI",
+											"text": "+SELECT_NUM_COMMENTI",
 											"horizontalAlignment": 0
 										},
 										{
@@ -5823,9 +5807,9 @@
 									],
 									"font": "Arial;13;0",
 									"left": 1360,
-									"top": 120,
+									"top": 135,
 									"width": 248,
-									"height": 278
+									"height": 263
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -17501,6 +17485,7 @@
 								"$ref": "AAAAAAF9a/tmuHzTlDg="
 							},
 							"name": "getFactory",
+							"isStatic": true,
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -17560,7 +17545,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF9a/tmuHzTlDg="
 							},
-							"name": "getDocentePiuCorsi",
+							"name": "getAll",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -17580,6 +17565,7 @@
 									"type": {
 										"$ref": "AAAAAAF9a1Bz/WXMHjE="
 									},
+									"multiplicity": "*",
 									"direction": "return"
 								}
 							]
@@ -19458,15 +19444,6 @@
 								"$ref": "AAAAAAF9bFgBVIJQyWM="
 							},
 							"name": "SELECT_NUM_COMMENTI",
-							"type": ""
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF9bHKYJaVknNw=",
-							"_parent": {
-								"$ref": "AAAAAAF9bFgBVIJQyWM="
-							},
-							"name": "SELECT_DOCENTE_PIU_CORSI",
 							"type": ""
 						},
 						{
