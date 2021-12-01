@@ -7,7 +7,7 @@ public class Corsista {
 	private long cod_corsista;
 	private String nome_corsista;
 	private String cognome_corsista;
-	private byte precenti_formativi;
+	private boolean precedenti_formativi;
 	
 	
 	
@@ -29,11 +29,11 @@ public class Corsista {
 	public void setCognome_corsista(String cognome_corsista) {
 		this.cognome_corsista = cognome_corsista;
 	}
-	public byte getPrecenti_formativi() {
-		return precenti_formativi;
+	public boolean getPrecedenti_formativi() {
+		return precedenti_formativi;
 	}
-	public void setPrecenti_formativi(byte precenti_formativi) {
-		this.precenti_formativi = precenti_formativi;
+	public void setPrecedenti_formativi(boolean precedenti_formativi) {
+		this.precedenti_formativi = precedenti_formativi;
 	}
 	
 }
