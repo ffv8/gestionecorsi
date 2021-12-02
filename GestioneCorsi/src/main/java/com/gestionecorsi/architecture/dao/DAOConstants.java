@@ -1,6 +1,9 @@
 package com.gestionecorsi.architecture.dao;
 
 public interface DAOConstants {
+	// ---------------- Amministratore
+	String SELECT_ADMIN_BYID = "Select * from amministratore where cod_admin = ?";
+	
 	// ---------------- Corsista
 	String SELECT_CORSISTA = "select * from corsista";
 	String DELETE_CORSISTA = "delete from corsista where cod_corsista=?";
