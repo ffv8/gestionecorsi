@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.gestionecorsi.businesscomponent.models.Docente;
+import com.gestionecorsi.businesscomponent.model.Docente;
 
 public class DocenteDAO implements DAOConstants {
 	public static DocenteDAO getFactory() throws DAOException {

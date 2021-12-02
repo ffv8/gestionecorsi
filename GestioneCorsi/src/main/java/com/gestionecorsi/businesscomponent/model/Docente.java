@@ -1,4 +1,4 @@
-package com.gestionecorsi.businesscomponent.models;
+package com.gestionecorsi.businesscomponent.model;
 
 public class Docente {
 	private long codDocente;

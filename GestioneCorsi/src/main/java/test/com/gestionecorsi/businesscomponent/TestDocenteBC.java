@@ -11,7 +11,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import com.gestionecorsi.architecture.dao.DAOException;
 import com.gestionecorsi.businesscomponent.DocenteBC;
-import com.gestionecorsi.businesscomponent.models.Docente;
+import com.gestionecorsi.businesscomponent.model.Docente;
 
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
