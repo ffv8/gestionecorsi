@@ -11,8 +11,7 @@ import com.gestionecorsi.architecture.dao.DAOConstants;
 import com.gestionecorsi.architecture.dao.DAOException;
 import com.gestionecorsi.architecture.dbaccess.DBAccess;
 
-// TODO implementa interfaccia IDGeneratorInterface
-public class CorsoIDGenerator implements DAOConstants {
+public class CorsoIDGenerator implements IDGeneratorInterface, DAOConstants {
 	private static CorsoIDGenerator instance;
 	private Connection conn;
 	private Statement stmt;
@@ -29,8 +28,7 @@ public class CorsoIDGenerator implements DAOConstants {
 		return instance;
 	}
 
-	// TODO implementa interfaccia IDGeneratorInterface
-	// @Override
+	@Override
 	public long getNextID() throws DAOException, ClassNotFoundException, IOException {
 		long id = 0;
 		try {
