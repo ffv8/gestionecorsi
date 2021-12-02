@@ -3,7 +3,7 @@ package com.gestionecorsi.architecture.dao;
 public interface DAOConstants {
 	// ---------------- Amministratore
 	String SELECT_ADMIN_BYID = "Select * from amministratore where cod_admin = ?";
-	
+
 	// ---------------- Corsista
 	String SELECT_CORSISTA = "select * from corsista";
 	String DELETE_CORSISTA = "delete from corsista where cod_corsista=?";
@@ -13,6 +13,11 @@ public interface DAOConstants {
 	// ---------------- Docente
 	String SELECT_DOCENTE_BYID = "select cod_docente, nome_docente, cognome_docente, cv_docente from docente where cod_docente = ?";
 	String SELECT_DOCENTI = "select cod_docente, nome_docente, cognome_docente, cv_docente from docente";
+
+	// ---------------- Iscrizione
+	String SELECT_ISCRIZIONE = "select * from iscrizione";
+	String SELECT_N_ISCRITTI_CORSO = "select cod_corsista from iscrizione where cod_corso = ?";
+	String SELECT_CORSO_FREQUENTATO = "select cod_corso from iscrizione group by cod_corso order by count(cod_corso) desc";
 
 	// ---------------- Corso
 	String SELECT_CORSO = "select * from corso";
