@@ -1,4 +1,4 @@
-package com.gestionecorsi.businesscomponent;
+package com.gestionecorsi.businesscomponent.idgenerator;
 
 import java.io.IOException;
 

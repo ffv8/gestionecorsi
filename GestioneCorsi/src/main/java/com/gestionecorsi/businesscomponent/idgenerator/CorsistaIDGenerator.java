@@ -10,7 +10,6 @@ import java.sql.Statement;
 import com.gestionecorsi.architecture.dao.DAOConstants;
 import com.gestionecorsi.architecture.dao.DAOException;
 import com.gestionecorsi.architecture.dbaccess.DBAccess;
-import com.gestionecorsi.businesscomponent.IDGeneratorInterface;
 
 /*autore Carraro Federico*/
 public class CorsistaIDGenerator implements IDGeneratorInterface,DAOConstants {
