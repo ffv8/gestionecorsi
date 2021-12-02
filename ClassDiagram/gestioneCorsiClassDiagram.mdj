@@ -5313,7 +5313,7 @@
 											"top": 1248,
 											"width": 191.83251953125,
 											"height": 13,
-											"text": "+getInizioUltimoCorso(): Corso",
+											"text": "+getInizioUltimoCorso(): Date",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6307,7 +6307,7 @@
 											"top": 1917,
 											"width": 655,
 											"height": 13,
-											"text": "+getInizioUltimoCorso(): Corso",
+											"text": "+getInizioUltimoCorso(): Date",
 											"horizontalAlignment": 0
 										},
 										{
@@ -19120,9 +19120,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9bIP19NhH7iI="
 									},
-									"type": {
-										"$ref": "AAAAAAF9a1GsRmZrrUs="
-									},
+									"type": "Date",
 									"direction": "return"
 								}
 							]
@@ -20143,9 +20141,7 @@
 									"_parent": {
 										"$ref": "AAAAAAF9bIlELutQ8Eo="
 									},
-									"type": {
-										"$ref": "AAAAAAF9a1GsRmZrrUs="
-									},
+									"type": "Date",
 									"direction": "return"
 								}
 							]
