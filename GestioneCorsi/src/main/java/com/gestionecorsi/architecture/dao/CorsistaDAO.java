@@ -60,24 +60,6 @@ public class CorsistaDAO implements DAOConstants {
 		}
 	}
 	
-	public void delete(Connection conn, long codCorsista) throws DAOException {
-		PreparedStatement ps;
-		
-		try
-		{
-			ps=conn.prepareStatement(DELETE_CORSISTA);
-			ps.setLong(1,codCorsista);
-			ps.execute();
-			conn.commit();/*lo devo fare perchè l'autocommit è a false*/
-			
-			
-		}
-		catch(SQLException sql)
-		{
-			throw new DAOException(sql);
-			
-		}
-	}
 	
 	public Corsista[] getAll(Connection conn) throws DAOException {
 		Corsista[] corsisti =null;
