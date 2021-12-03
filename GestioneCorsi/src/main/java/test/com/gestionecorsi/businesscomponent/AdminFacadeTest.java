@@ -1,9 +1,8 @@
 package test.com.gestionecorsi.businesscomponent;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -20,8 +19,8 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import com.gestionecorsi.architecture.dao.DAOException;
 import com.gestionecorsi.businesscomponent.AdminFacade;
-import com.gestionecorsi.businesscomponent.model.Corso;
 import com.gestionecorsi.businesscomponent.model.Corsista;
+import com.gestionecorsi.businesscomponent.model.Corso;
 import com.gestionecorsi.businesscomponent.model.Docente;
 
 @TestMethodOrder(OrderAnnotation.class)
@@ -31,7 +30,7 @@ class AdminFacadeTest {
 	private static Corso corso2;
 	private static Corso corso3;
 	// ---------------- Corsista
-	private static Corsista corsista
+	private static Corsista corsista;
 	// ---------------- Docente
 	private static Docente docente;
 
@@ -243,10 +242,10 @@ class AdminFacadeTest {
 	@Test
 	void testGetCorsistaByID() {
 		try {
-			Corsista c = AdminFacade.getInstance().getCorsistaByID(5);
+			Corsista c = AdminFacade.getInstance().getCorsistaByID(3);
 
 			assertNotNull(c);
-			assertEquals(5, c.getCodCorsista());
+			assertEquals(3, c.getCodCorsista());
 			assertEquals("Federico", c.getNomeCorsista());
 			assertEquals("c8", c.getCognomeCorsista());
 			assertEquals(true, c.getPrecedentiFormativi());
