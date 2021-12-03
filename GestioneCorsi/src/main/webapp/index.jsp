@@ -1,5 +1,5 @@
-<%@page import="com.gestionecorsi.businesscomponent.model.Corsista"%>
-<%@page import="com.gestionecorsi.businesscomponent.AdminFacade"%>
+<%@ page import="com.gestionecorsi.businesscomponent.model.Corsista" %>
+<%@ page import="com.gestionecorsi.businesscomponent.AdminFacade" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/general.css">
 	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="css/navbar.css">
-	<title>Riepilogo iscrizioni</title>
+	<title>Riepilogo corsisti</title>
 </head>
 <body>
 	<jsp:include page="navbar.jsp" />
@@ -22,7 +22,7 @@
 			<tr>
 				<th>Nome</th>
 				<th>Cognome</th>
-				<th>Precedenti formativi</th>	
+				<th class="text-center">Precedenti formativi</th>	
 			</tr>
 			<%
 				Corsista[] corsisti = AdminFacade.getInstance().getCorsisti();
@@ -32,7 +32,7 @@
 			<tr>
 				<td><%= corsisti[i].getNomeCorsista() %></td>
 				<td><%= corsisti[i].getCognomeCorsista() %></td>
-				<td>
+				<td class="text-center">
 					<%
 						if(corsisti[i].getPrecedentiFormativi()) {
 					%>
