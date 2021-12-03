@@ -47,7 +47,10 @@ public class CorsistaDAO implements DAOConstants {
 			rowSet.updateLong(1, model.getCodCorsista());
 			rowSet.updateString(2, model.getNomeCorsista());
 			rowSet.updateString(3,model.getCognomeCorsista());
-			rowSet.updateBoolean(4, model.getPrecedentiFormativi());
+			if(model.getPrecedentiFormativi() == true)	
+				rowSet.updateInt(4,1);
+			else
+				rowSet.updateInt(4, 0);
 			rowSet.insertRow();
 			rowSet.moveToCurrentRow();
 			rowSet.acceptChanges();
