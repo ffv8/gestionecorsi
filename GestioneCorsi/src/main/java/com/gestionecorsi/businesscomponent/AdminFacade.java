@@ -7,6 +7,7 @@ import java.util.Date;
 import com.gestionecorsi.architecture.dao.DAOException;
 import com.gestionecorsi.businesscomponent.model.Amministratore;
 import com.gestionecorsi.businesscomponent.model.Corso;
+import com.gestionecorsi.businesscomponent.model.Corsista;
 import com.gestionecorsi.businesscomponent.model.Docente;
 
 public class AdminFacade {
@@ -70,6 +71,29 @@ public class AdminFacade {
 	public int getNumeroCommenti()
 			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
 		return CorsoBC.getFactory().getNumeroCommenti();
+	}
+	
+	// ---------------- Corsista
+	public void createCorsista(Corsista model) throws ClassNotFoundException, DAOException, FileNotFoundException, IOException
+	{
+		CorsistaBC c =new CorsistaBC();
+		
+		c.create(model);
+		
+	}
+	
+	public Corsista[] getCorsisti() throws ClassNotFoundException, DAOException, FileNotFoundException, IOException
+	{
+		CorsistaBC c = new CorsistaBC();
+				
+		return c.getAll();
+		
+	}
+	
+	public Corsista getCorsistaByID(long codCorsista) throws DAOException, ClassNotFoundException, FileNotFoundException, IOException
+	{
+		CorsistaBC c =new CorsistaBC();
+		return c.getByID(codCorsista);
 	}
 
 	// ---------------- Amministratore
