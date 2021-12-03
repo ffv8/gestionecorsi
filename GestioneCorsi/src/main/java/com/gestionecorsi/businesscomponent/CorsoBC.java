@@ -12,65 +12,86 @@ import com.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.gestionecorsi.businesscomponent.idgenerator.CorsoIDGenerator;
 import com.gestionecorsi.businesscomponent.model.Corso;
 
-// TODO chiusura connessione per ogni metodo?
 public class CorsoBC {
 	private Connection conn;
 	private CorsoIDGenerator idGen;
 
 	private CorsoBC() throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
-		conn = DBAccess.getConnection();
 		idGen = CorsoIDGenerator.getInstance();
 	}
 
-	public static CorsoBC getFactory() throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+	public static CorsoBC getFactory()
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
 		return new CorsoBC();
 	}
 
-	public void create(Corso model) throws DAOException, ClassNotFoundException, IOException {
+	public void create(Corso model)
+			throws DAOException, ClassNotFoundException, IOException {
+		conn = DBAccess.getConnection();
 		try {
 			model.setCodCorso(idGen.getNextID());
 			CorsoDAO.getFactory().create(conn, model);
 
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
+		} finally {
+			DBAccess.closeConnection();
 		}
 	}
 
-	public void delete(long codCorso) throws DAOException {
+	public void delete(long codCorso)
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		conn = DBAccess.getConnection();
 		try {
 			CorsoDAO.getFactory().delete(conn, codCorso);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
+		} finally {
+			DBAccess.closeConnection();
 		}
 	}
 
-	public Corso[] getAll() throws DAOException {
+	public Corso[] getAll()
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		conn = DBAccess.getConnection();
 		Corso[] corsi = null;
 		try {
 			corsi = CorsoDAO.getFactory().getAll(conn);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
+		} finally {
+			DBAccess.closeConnection();
 		}
 		return corsi;
 	}
 
-	public Corso getByID(long codCorso) throws DAOException {
+	public Corso getByID(long codCorso)
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		conn = DBAccess.getConnection();
 		try {
 			return CorsoDAO.getFactory().getByID(conn, codCorso);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
+		} finally {
+			DBAccess.closeConnection();
 		}
 	}
 
-	public Date getInizioUltimoCorso() throws DAOException {
+	public Date getInizioUltimoCorso()
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		conn = DBAccess.getConnection();
 		try {
 			return CorsoDAO.getFactory().getInizioUltimoCorso(conn);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
+		} finally {
+			DBAccess.closeConnection();
 		}
 	}
 
-	public double getDurataMedia() throws DAOException {
+	public double getDurataMedia()
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		conn = DBAccess.getConnection();
 		double media = 0.0;
 		try {
 			Corso[] corsi = CorsoDAO.getFactory().getAll(conn);
@@ -80,15 +101,21 @@ public class CorsoBC {
 
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
+		} finally {
+			DBAccess.closeConnection();
 		}
 		return media;
 	}
 
-	public int getNumeroCommenti() throws DAOException {
+	public int getNumeroCommenti()
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		conn = DBAccess.getConnection();
 		try {
 			return CorsoDAO.getFactory().getNumeroCommenti(conn);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
+		} finally {
+			DBAccess.closeConnection();
 		}
 	}
 

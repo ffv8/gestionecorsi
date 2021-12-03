@@ -1,6 +1,7 @@
 package test.com.gestionecorsi.businesscomponent;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -18,6 +19,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import com.gestionecorsi.architecture.dao.DAOException;
 import com.gestionecorsi.businesscomponent.AdminFacade;
+import com.gestionecorsi.businesscomponent.model.Corsista;
 import com.gestionecorsi.businesscomponent.model.Corso;
 import com.gestionecorsi.businesscomponent.model.Docente;
 
@@ -27,6 +29,8 @@ class AdminFacadeTest {
 	private static Corso corso1;
 	private static Corso corso2;
 	private static Corso corso3;
+	// ---------------- Corsista
+	private static Corsista corsista;
 	// ---------------- Docente
 	private static Docente docente;
 
@@ -188,6 +192,71 @@ class AdminFacadeTest {
 		}
 	}
 
+	// ---------------- Corsista
+	@Test
+	@Order(10)
+	void testCreateCorsista() {
+		try {
+			corsista = new Corsista();
+
+			corsista.setCodCorsista(8);
+
+			corsista.setNomeCorsista("Federico");
+
+			corsista.setCognomeCorsista("c8");
+
+			corsista.setPrecedentiFormativi(true);
+
+			AdminFacade.getInstance().createCorsista(corsista);
+
+			System.out.println("creato corsista Federico");
+		} catch (ClassNotFoundException | DAOException | IOException exc) {
+			System.out.println(exc.getMessage());
+			fail("test fallito");
+
+		}
+
+	}
+
+	@Order(11)
+	@Test
+	void testGetCorsisti() {
+		try {
+			Corsista[] corsisti = AdminFacade.getInstance().getCorsisti();
+			assertNotNull(corsisti);
+
+			for (Corsista c : corsisti) {
+				System.out.println("c   " + c.getCodCorsista() + ",nome:   " + c.getNomeCorsista() + ",cognome:   "
+						+ c.getCognomeCorsista() + ",precedenti formativi:    " + c.getPrecedentiFormativi());
+
+			}
+
+		} catch (ClassNotFoundException | DAOException | IOException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+
+	}
+
+	@Order(12)
+	@Test
+	void testGetCorsistaByID() {
+		try {
+			Corsista c = AdminFacade.getInstance().getCorsistaByID(3);
+
+			assertNotNull(c);
+			assertEquals(3, c.getCodCorsista());
+			assertEquals("Federico", c.getNomeCorsista());
+			assertEquals("c8", c.getCognomeCorsista());
+			assertEquals(true, c.getPrecedentiFormativi());
+		} catch (DAOException | ClassNotFoundException | IOException exc) {
+			exc.printStackTrace();
+			fail(exc.getMessage());
+
+		}
+
+	}
+
 	// --------------------------------
 
 	@AfterAll
@@ -198,5 +267,7 @@ class AdminFacadeTest {
 		corso3 = null;
 		// ---------------- Docente
 		docente = null;
+		// ---------------- Corsista
+		corsista = null;
 	}
 }
