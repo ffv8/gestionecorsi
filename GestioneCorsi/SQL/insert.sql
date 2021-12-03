@@ -6,3 +6,6 @@ insert into docente values(105, 'Marta', 'Neri', 'ASP');
 
 
 insert into amministratore values(1001,'Paolo','De Paoli','root','admin');
+
+
+insert into corsista values(101, 'Tim', 'Cook', 0);
