@@ -18,9 +18,14 @@ import com.gestionecorsi.businesscomponent.model.Iscrizione;
 public class IscrizioneBC {
 	private Connection conn;
 	
-	public IscrizioneBC() throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
+	private IscrizioneBC() throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
 		conn = DBAccess.getConnection();
 	}
+	
+	public static IscrizioneBC getFactory() throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		return new IscrizioneBC();
+	}
+	
 	
 	public void create(long codCorso, long codCorsista) throws DAOException {
 		try {

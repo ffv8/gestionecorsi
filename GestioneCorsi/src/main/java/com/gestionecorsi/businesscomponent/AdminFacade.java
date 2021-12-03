@@ -23,16 +23,13 @@ public class AdminFacade {
 	
 	// ----- Iscrizione
 	public void createIscrizione(long codCorso, long codCorsista) throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
-		IscrizioneBC iBC = new IscrizioneBC();
-		iBC.create(codCorso, codCorsista);
+		IscrizioneBC.getFactory().create(codCorso, codCorsista);
 	}
 	public Corsista[] getIscrittiCorso(long codCorso) throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
-		IscrizioneBC iBC = new IscrizioneBC();
-		return iBC.getIscritti(codCorso);
+		return IscrizioneBC.getFactory().getIscritti(codCorso);
 	}
 	public Corso[] getCorsiDisponibili() throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
-		IscrizioneBC iBC = new IscrizioneBC();
-		return iBC.getCorsiDisponibili();
+		return IscrizioneBC.getFactory().getCorsiDisponibili();
 	}
 	
 	
