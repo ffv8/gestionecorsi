@@ -1,4 +1,4 @@
-package test.com.gestionecorsi.businesscomponent;
+package test.com.gestionecorsi.businesscomponent.utilities;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
