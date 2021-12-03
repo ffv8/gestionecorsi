@@ -51,6 +51,18 @@
 			%>
 		</table>
 	</div>
+	
+	<div>
+		<a class="btn btn-primary" href="#" data-toggle="modal"
+			data-target="#newCorsista">Nuovo corsista</a>
+	</div>
+	<div>
+		<a class="btn btn-primary" href="#" data-toggle="modal"
+			data-target="#newCorso">Nuovo corso</a>
+	</div>
+	
+	<jsp:include page="modalCorsista.jsp" />
+	<jsp:include page="modalCorso.jsp" />
 		
 	<footer>
 		<%@ include file="footer.html" %>
