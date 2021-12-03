@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import com.gestionecorsi.architecture.dao.DAOException;
 import com.gestionecorsi.businesscomponent.model.Amministratore;
+import com.gestionecorsi.businesscomponent.model.Corsista;
 import com.gestionecorsi.businesscomponent.model.Docente;
 import com.gestionecorsi.businesscomponent.model.Corsista;
 
