@@ -31,7 +31,7 @@ public class IscrizioneBC {
 		try {
 			Iscrizione model = new Iscrizione();
 			model.setCodCorsista(codCorsista);
-			model.setCodCorsista(codCorso);
+			model.setCodCorso(codCorso);
 			IscrizioneDAO.getFactory().create(conn, model);
 		}catch(SQLException sql) {
 			throw new DAOException(sql);
@@ -96,8 +96,10 @@ public class IscrizioneBC {
 			throw new DAOException(sql);
 		}
 		
+        Corso[] corsi = new Corso[corsiDisponibili.size()];
+        corsi = corsiDisponibili.toArray(corsi);
 		
-		return (Corso[]) corsiDisponibili.toArray();
+		return corsi;
 	}
 
 	
