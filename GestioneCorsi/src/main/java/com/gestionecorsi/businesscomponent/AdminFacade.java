@@ -2,9 +2,11 @@ package com.gestionecorsi.businesscomponent;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Date;
 
 import com.gestionecorsi.architecture.dao.DAOException;
 import com.gestionecorsi.businesscomponent.model.Amministratore;
+import com.gestionecorsi.businesscomponent.model.Corso;
 import com.gestionecorsi.businesscomponent.model.Docente;
 
 public class AdminFacade {
@@ -19,6 +21,7 @@ public class AdminFacade {
 		return istanza;
 	}
 
+	// ---------------- Docente
 	public Docente getDocenteByID(long codDocente)
 			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
 
@@ -33,6 +36,43 @@ public class AdminFacade {
 		return dBC.getDocentePiuCorsi();
 	}
 
+	// ---------------- Corso
+	public void createCorso(Corso model)
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		CorsoBC.getFactory().create(model);
+	}
+
+	public void deleteCorso(long codCorso)
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		CorsoBC.getFactory().delete(codCorso);
+	}
+
+	public Corso[] getCorsi()
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		return CorsoBC.getFactory().getAll();
+	}
+	
+	public Corso getCorsoByID(long codCorso)
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		return CorsoBC.getFactory().getByID(codCorso);
+	}
+	
+	public Date getInizioUltimoCorso()
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		return CorsoBC.getFactory().getInizioUltimoCorso();
+	}
+	
+	public double getDurataMedia()
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		return CorsoBC.getFactory().getDurataMedia();
+	}
+	
+	public int getNumeroCommenti()
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		return CorsoBC.getFactory().getNumeroCommenti();
+	}
+
+	// ---------------- Amministratore
 	public Amministratore getAmministratoreByID(long codAdmin)
 			throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
 		AmministratoreBC aBC = new AmministratoreBC();
