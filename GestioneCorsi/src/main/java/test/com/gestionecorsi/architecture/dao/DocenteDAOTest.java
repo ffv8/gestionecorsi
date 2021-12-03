@@ -17,7 +17,7 @@ import com.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.gestionecorsi.businesscomponent.model.Docente; 
 
 @TestMethodOrder(OrderAnnotation.class)
-class TestDocenteDAO {
+class DocenteDAOTest {
 	private static Connection conn;
 	
 	@BeforeAll

@@ -17,7 +17,7 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 
 @TestMethodOrder(OrderAnnotation.class)
-class TestDocenteBC {
+class DocenteBCTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
