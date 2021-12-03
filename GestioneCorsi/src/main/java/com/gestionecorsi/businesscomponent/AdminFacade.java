@@ -96,6 +96,23 @@ public class AdminFacade {
 		return c.getByID(codCorsista);
 	}
 
+	
+	// ----- Iscrizione
+	public void createIscrizione(long codCorso, long codCorsista) throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
+		IscrizioneBC iBC = new IscrizioneBC();
+		iBC.create(codCorso, codCorsista);
+	}
+	public Corsista[] getIscrittiCorso(long codCorso) throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
+		IscrizioneBC iBC = new IscrizioneBC();
+		return iBC.getIscritti(codCorso);
+	}
+	public Corso[] getCorsiDisponibili() throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
+		IscrizioneBC iBC = new IscrizioneBC();
+		return iBC.getCorsiDisponibili();
+	}
+
+	
+	
 	// ---------------- Amministratore
 	public Amministratore getAmministratoreByID(long codAdmin)
 			throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
