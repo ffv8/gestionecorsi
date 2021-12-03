@@ -12,6 +12,7 @@ import com.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.gestionecorsi.businesscomponent.idgenerator.CorsoIDGenerator;
 import com.gestionecorsi.businesscomponent.model.Corso;
 
+// TODO chiusura connessione per ogni metodo?
 public class CorsoBC {
 	private Connection conn;
 	private CorsoIDGenerator idGen;
@@ -32,8 +33,6 @@ public class CorsoBC {
 
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
-		} finally {
-			DBAccess.closeConnection();
 		}
 	}
 
@@ -42,8 +41,6 @@ public class CorsoBC {
 			CorsoDAO.getFactory().delete(conn, codCorso);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
-		} finally {
-			DBAccess.closeConnection();
 		}
 	}
 
@@ -53,8 +50,6 @@ public class CorsoBC {
 			corsi = CorsoDAO.getFactory().getAll(conn);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
-		} finally {
-			DBAccess.closeConnection();
 		}
 		return corsi;
 	}
@@ -64,8 +59,6 @@ public class CorsoBC {
 			return CorsoDAO.getFactory().getByID(conn, codCorso);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
-		} finally {
-			DBAccess.closeConnection();
 		}
 	}
 
@@ -74,8 +67,6 @@ public class CorsoBC {
 			return CorsoDAO.getFactory().getInizioUltimoCorso(conn);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
-		} finally {
-			DBAccess.closeConnection();
 		}
 	}
 
@@ -89,8 +80,6 @@ public class CorsoBC {
 
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
-		} finally {
-			DBAccess.closeConnection();
 		}
 		return media;
 	}
@@ -100,8 +89,6 @@ public class CorsoBC {
 			return CorsoDAO.getFactory().getNumeroCommenti(conn);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
-		} finally {
-			DBAccess.closeConnection();
 		}
 	}
 
