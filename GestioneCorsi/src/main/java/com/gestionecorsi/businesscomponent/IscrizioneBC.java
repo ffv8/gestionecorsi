@@ -67,6 +67,16 @@ public class IscrizioneBC {
 	}
 
 	
+	public Corso[] getIscrizioniCorsista(long codCorsista) throws DAOException {
+		Corso[] iscrizioni = null;
+		try {
+			iscrizioni = IscrizioneDAO.getFactory().getIscrizioniCorsista(conn, codCorsista);
+		}catch(SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return iscrizioni;
+	}
+	
 	
 	public Corso[] getCorsiDisponibili() throws DAOException{
 		
