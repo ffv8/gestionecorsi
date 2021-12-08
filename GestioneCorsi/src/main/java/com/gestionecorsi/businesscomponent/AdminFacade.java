@@ -105,6 +105,11 @@ public class AdminFacade {
 			throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
 		return IscrizioneBC.getFactory().getIscritti(codCorso);
 	}
+	
+	public Corso[] getIscrizioniCorsista(long codCorsista)
+			throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
+		return IscrizioneBC.getFactory().getIscrizioniCorsista(codCorsista);
+	}
 
 	public Corso[] getCorsiDisponibili()
 			throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {

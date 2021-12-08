@@ -23,6 +23,7 @@ import com.gestionecorsi.businesscomponent.model.Corsista;
 import com.gestionecorsi.businesscomponent.model.Corso;
 import com.gestionecorsi.businesscomponent.model.Iscrizione;
 
+//TODO aggiungi test per getIscrizioniCorsista
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class IscrizioneDAOTest {
 	private static Corso corso1;

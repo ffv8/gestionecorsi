@@ -9,7 +9,7 @@ import java.sql.Statement;
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 
-
+import com.gestionecorsi.businesscomponent.model.Corso;
 import com.gestionecorsi.businesscomponent.model.Iscrizione;
 
 public class IscrizioneDAO implements DAOConstants{
@@ -73,6 +73,30 @@ public class IscrizioneDAO implements DAOConstants{
 			throw new DAOException(exc);
 		}
 		return iscritti;
+	}
+	
+	
+	public Corso[] getIscrizioniCorsista(Connection conn, long codCorsista) throws DAOException{
+		Corso[] iscrizioni = null;
+		try {
+			PreparedStatement ps = conn.prepareStatement(SELECT_ISCRIZIONI_CORSISTA,
+					ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_READ_ONLY);
+			ps.setLong(1, codCorsista);
+			ResultSet rs = ps.executeQuery();
+			rs.last();
+			iscrizioni = new Corso[rs.getRow()];
+			rs.beforeFirst();
+			
+			for (int i = 0; rs.next(); i++)
+				iscrizioni[i] = CorsoDAO.getFactory().getByID(conn, rs.getLong(1));
+			
+			rs.close();
+					
+		}catch(SQLException exc) {
+			throw new DAOException(exc);
+		}
+		return iscrizioni;
 	}
 	
 	
