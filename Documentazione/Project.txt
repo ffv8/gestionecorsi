@@ -1,0 +1,97 @@
+//////////////////////////////////////////
+////-------------------------------------                   
+///    Esercitazione JAVA EE
+//--------------------------------------                   
+////////////////////////////////////////
+
+--------------------
+dati amministratori 
+--------------------
+nomeadmin
+cognomeadmin
+codadmin
+
+-----------
+dati corsi  
+-----------
+codcorso
+nomecorso
+datainiziocorso
+datafinecorso
+costocorso
+commenticorso
+aulacorso
+
+-------------
+dati corsisti 
+-------------
+nomecorsista
+cognomecorsista
+codcorsista
+precedentiformativi
+
+
+-------------
+dati docenti   
+-------------
+nomedocente
+cognomedocente
+cvdocente
+coddocente
+
+Vincoli :  
+1 corso => 1 docente
+I dati dell'amministratore e del docente sono presenti nel DB. Non verranno inseriti della WEBAPP.
+
+
+Realizzare una applicazione web con le seguenti caratteristiche:
+
+
+1) All'avvio dell'applicazione ( pagina index ) viene presentata all'utente una pagina di inserimento utente e codice amministratore.
+I dati inseriti devono essere convalidati ( convalida case sensitive ).
+L'inserimento di una coppia di valori scorretta genera un messaggio di errore, dopo il quale l'utente può reinserire i dati per un massimo
+di 5 volte. Il superamento di tale limite reindirizza a una pagina di errore con il messaggio "numero di tentativi esauriti".
+
+2) Se i dati inseriti sono corretti viene presentata la lista dei corsisti attualmente iscritti ai corsi e i dati della sessione dell'admin 
+devono essere salvati.
+
+3) Nella pagina devono comparire 3 pulsanti:
+
+- pulsante inserisci: inserisce un nuovo corsista
+La pagina successiva deve visualizzare il nuovo dato inserito e i dati attualmente presenti nella base dati.( Per ogni corso ci possono essere un massimo di 12 iscritti ).
+
+I dati inseriti per il discente devono passare le seguenti convalide lato server:
+a) nome corsista (obbligatorio, stringa, max 30 caratteri, no numeri )
+b) cognome corsista (obbligatorio, stringa, max 30 caratteri, no numeri )
+c) nome corso (obbligatorio, stringa, max 30 caratteri, no numeri )
+d) data inizio ( obbigatorio, formato valido DD/MM/YYYY ) 
+e) data fine ( obbigatorio, formato valido DD/MM/YYYY ) - Il corso deve durare minimo 2gg
+f) commenti ( stringa lunghezza max 200 caratteri )
+g) precedenti formativi ( campo SI/NO, radio button )
+h) aulacorso ( stringa, numeri e lettere, lunghezza max 30 )
+i) docente ( deve essere presente nel database ) - utilizzare una select per associare il corso al docente
+
+- pulsante visualizza statistiche: apre una pagina in cui vengono riepilogate le seguenti informazioni relative ai record già memorizzati:
+
+I.    Numero corsisti totali.
+II.   Nome del corso più frequentato
+III.  Data di inizio ultimo corso
+IV.   Durata media dei corsi ( in giorni lavorativi )
+V.    Numero di commenti presenti
+VI.   Elenco corsisti
+VII.  Docente che può tenere più tipologie di corso
+VIII. Corsi con posti disponibili
+
+Al punto VI. cliccando sul nome del corsista si deve aprire la pagina contenente il riepilogo con le informazioni dei corsi da lui frequentati.
+
+- pulsante elimina corsi - apre una pagina in cui vengono elencati tutti i corsi disponibili con data maggiore alla data odierna. Il sistema deve
+permettere di scegliere i corsi da cancellare ( ovviamente i relativi dati associati verranno eliminati ). 
+
+4) In tutte le pagine deve essere presente in alto a destra il nome dell'utente amministratore e un pulsante per effettuare il logout. 
+
+5) Gestire la memorizzazione dello username tramite un oggetto Cookie in modo da essere riconosciuti automaticamente al prossimo accesso (Fino allo svuotamento della cache).
+
+Il logout farà un redirect alla pagina di index
+
+Consegnare archivio del progetto
+
