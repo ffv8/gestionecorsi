@@ -27,57 +27,64 @@
 
 		<div class="flex-evenly">
 			<!-- Dati sui corsi -->
-			<!-- TODO dividere in due card: corsi e docenti -->
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Dati sui corsi</h3>
 				</div>
 				<div class="panel-body">
-					<!-- TODO convertire in tabella -->
-					<div class="flex-between">
-						<span>Corso pi&ugrave; frequentato:</span>
-						<%
-						Corso cpf = AdminFacade.getInstance().getCorsoPiuFrequentato();
-						if (cpf != null) {
-							int iscritti = AdminFacade.getInstance().getIscrittiCorso(cpf.getCodCorso()).length;
-						%>
-						<span data-toggle="tooltip" data-placement="top" data-html="true"
-							title='Iscritti: <span class="badge"><%=iscritti%></span>'><%=cpf.getNomeCorso()%></span>
-						<%
-						} else {
-						%>
-						<span>---</span>
-						<%
-						}
-						%>
-					</div>
-
-					<div class="flex-between">
-						<span>Inizio ultimo corso:</span>
-						<%
-						Corso uc = AdminFacade.getInstance().getUltimoCorso();
-						if (uc != null) {
-						%>
-						<span data-toggle="tooltip" data-placement="top"
-							title="<%=uc.getNomeCorso()%>"><%=new SimpleDateFormat("dd/MM/yyyy").format(uc.getDataInizioCorso())%></span>
-						<%
-						} else {
-						%>
-						<span>---</span>
-						<%
-						}
-						%>
-					</div>
-
-					<div class="flex-between">
-						<span>Durata media (giorni lavorativi):</span>
-						<span class="badge"><%=String.format("%.1f", AdminFacade.getInstance().getDurataMedia())%></span>
-					</div>
-
-					<div class="flex-between">
-						<span>Commenti presenti:</span>
-						<span class="badge"><%=AdminFacade.getInstance().getNumeroCommenti()%></span>
-					</div>
+					<table class="table table-hover">
+						<tbody>
+							<tr>
+								<th class="th-fit-width text-right">Corso pi&ugrave; frequentato</th>
+								<td>
+									<%
+									Corso cpf = AdminFacade.getInstance().getCorsoPiuFrequentato();
+									if (cpf != null) {
+										int iscritti = AdminFacade.getInstance().getIscrittiCorso(cpf.getCodCorso()).length;
+									%>
+									<span data-toggle="tooltip" data-placement="top" data-html="true"
+										title='Iscritti: <span class="badge"><%=iscritti%></span>'><%=cpf.getNomeCorso()%></span>
+									<%
+									} else {
+									%>
+									<i>Nessuna iscrizione presente</i>
+									<%
+									}
+									%>
+								</td>
+							</tr>
+							<tr>
+								<th class="th-fit-width text-right">Inizio ultimo corso</th>
+								<td>
+									<%
+									Corso uc = AdminFacade.getInstance().getUltimoCorso();
+									if (uc != null) {
+									%>
+									<span data-toggle="tooltip" data-placement="top"
+										title="<%=uc.getNomeCorso()%>"><%=new SimpleDateFormat("dd/MM/yyyy").format(uc.getDataInizioCorso())%></span>
+									<%
+									} else {
+									%>
+									<i>Nessun corso presente</i>
+									<%
+									}
+									%>
+								</td>
+							</tr>
+							<tr>
+								<th class="th-fit-width text-right">Durata media (giorni lavorativi)</th>
+								<td>
+									<span class="badge"><%=String.format("%.1f", AdminFacade.getInstance().getDurataMedia())%></span>
+								</td>
+							</tr>
+							<tr>
+								<th class="th-fit-width text-right">Commenti presenti</th>
+								<td>
+									<span class="badge"><%=AdminFacade.getInstance().getNumeroCommenti()%></span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 
@@ -111,7 +118,7 @@
 									<%
 									} else {
 									%>
-									Nessun docente registrato.
+									<i>Nessun docente registrato</i>
 									<%
 									}
 									%>
@@ -220,7 +227,7 @@
 																<%
 																} else {
 																%>
-																<td>Nessun commento presente.</td>
+																<td><i>Nessun commento presente</i></td>
 																<%
 																}
 																%>
@@ -246,7 +253,7 @@
 				<%
 				} else {
 				%>
-				<p>Nessun corso con posti disponibili.</p>
+				<p><i>Nessun corso con posti disponibili</i></p>
 				<%
 				}
 				%>
