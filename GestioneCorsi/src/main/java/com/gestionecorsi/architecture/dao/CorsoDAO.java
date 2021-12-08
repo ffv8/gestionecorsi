@@ -115,19 +115,19 @@ public class CorsoDAO implements DAOConstants {
 		return corso;
 	}
 
-	public Date getInizioUltimoCorso(Connection conn) throws DAOException {
-		Date data = null;
+	public Corso getUltimoCorso(Connection conn) throws DAOException {
+		Corso corso = null;
 		try {
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(SELECT_INIZIO_ULTIMO_CORSO);
+			ResultSet rs = stmt.executeQuery(SELECT_ULTIMO_CORSO);
 			if (rs.next())
-				data = new java.util.Date(rs.getDate(1).getTime());
+				corso = getByID(conn, rs.getLong(1));
 			rs.close();
 
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
-		return data;
+		return corso;
 	}
 
 	public int getDurataGiorni(Connection conn, long codCorso) throws DAOException {
