@@ -1,0 +1,44 @@
+.flex-evenly {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	margin-bottom: 0.5em;
+}
+
+.panel-center {
+	margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3em;
+    max-width: 80ch;
+}
+
+.th-fit-width {
+	width: 1px;
+    white-space: nowrap;
+}
+
+.panel-heading-pill {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.panel-heading-pill .badge {
+	margin-left: 1em;
+}
+
+.badge {
+	max-height: 1.5em;
+	background-color: #293133;
+}
+
+.tooltip {
+	font-size: 0.9em;
+}
+
+#tooltip-CV + .tooltip .tooltip-inner {
+	text-align: left;
+}
+
+#tooltip-CV + .tooltip .tooltip-inner ul {
+	padding-inline-start: 20px;
+}
