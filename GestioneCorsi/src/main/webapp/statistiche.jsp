@@ -278,6 +278,7 @@
 								<th>Nome</th>
 								<th>Cognome</th>
 								<th class="th-fit-width">Precedenti formativi</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -295,6 +296,78 @@
 									else
 										iconClass = "glyphicon glyphicon-remove";
 									%> <i class="<%=iconClass%>"></i>
+								</td>
+								<td>
+									<div class="text-right">
+										<a class="btn btn-xs btn-default" href="#" data-toggle="modal"
+											data-target="#iscrizioniCorsista_<%=i%>">Iscrizioni</a>
+									</div>
+									
+									<!-- Modale dettagli iscrizioni corsista -->
+									<div class="modal fade" id="iscrizioniCorsista_<%=i%>" role="dialog">
+										<div class="modal-dialog modal-md" role="dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h3 class="modal-title">Iscrizioni</h3>
+												</div>
+												<div class="modal-body">
+													<p><b>Studente:&nbsp;</b><%=corsisti[i].getNomeCorsista() + " " + corsisti[i].getCognomeCorsista()%></p>
+													<%
+													Corso[] iscrizioni = AdminFacade.getInstance().getIscrizioniCorsista(corsisti[i].getCodCorsista());
+													/* Ordinati per data di inizio */
+													Arrays.sort(iscrizioni, new Comparator<Corso>() {
+														@Override
+														public int compare(Corso c1, Corso c2) {
+															return c1.getDataInizioCorso().compareTo(c2.getDataInizioCorso());
+														}
+													});
+													if (iscrizioni != null && iscrizioni.length > 0) {
+													%>
+													<table class="table table-hover">
+														<thead>
+															<tr>
+																<th>Corso</th>
+																<th>Docente</th>
+																<th>Aula</th>
+																<th>Inizio</th>
+																<th>Fine</th>
+																<th>Costo</th>
+															</tr>
+														</thead>
+														<tbody>
+															<%
+															for (int j = 0; j < iscrizioni.length; j++) {
+																Docente docente = AdminFacade.getInstance().getDocenteByID(iscrizioni[j].getCodDocente());
+															%>
+															<tr>
+																<td><%=iscrizioni[j].getNomeCorso()%></td>
+																<td><%=docente.getNomeDocente() + " " + docente.getCognomeDocente()%></td>
+																<td><%=iscrizioni[j].getAulaCorso()%></td>
+																<td><%=new SimpleDateFormat("dd/MM/yyyy").format(iscrizioni[j].getDataInizioCorso())%></td>
+																<td><%=new SimpleDateFormat("dd/MM/yyyy").format(iscrizioni[j].getDataFineCorso())%></td>
+																<td class="text-right">&euro;&nbsp;<%=iscrizioni[j].getCostoCorso()%></td>
+															</tr>
+															<%
+															}
+															%>
+														</tbody>
+													</table>
+													<%
+													} else {
+													%>
+													<p><i>Ancora nessuna iscrizione</i></p>
+													<%
+													}
+													%>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-primary"
+														data-dismiss="modal">Chiudi</button>
+												</div>
+											</div>
+										</div>
+									</div>
 								</td>
 							</tr>
 							<%
