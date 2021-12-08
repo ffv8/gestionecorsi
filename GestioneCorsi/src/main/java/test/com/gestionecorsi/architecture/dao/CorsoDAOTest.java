@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.Connection;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.junit.jupiter.api.AfterAll;
@@ -110,10 +109,10 @@ class CorsoDAOTest {
 
 	@Test
 	@Order(4)
-	void testGetInizioUltimoCorso() {
+	void testGetUltimoCorso() {
 		try {
-			Date data = CorsoDAO.getFactory().getInizioUltimoCorso(conn);
-			assertNotNull(data);
+			Corso corso = CorsoDAO.getFactory().getUltimoCorso(conn);
+			assertNotNull(corso);
 
 		} catch (DAOException e) {
 			e.printStackTrace();

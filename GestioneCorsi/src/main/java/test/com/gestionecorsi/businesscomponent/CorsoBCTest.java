@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.junit.jupiter.api.AfterAll;
@@ -102,10 +101,10 @@ class CorsoBCTest {
 
 	@Test
 	@Order(4)
-	void testGetInizioUltimoCorso() {
+	void testGetUltimoCorso() {
 		try {
-			Date data = CorsoBC.getFactory().getInizioUltimoCorso();
-			assertNotNull(data);
+			Corso corso = CorsoBC.getFactory().getUltimoCorso();
+			assertNotNull(corso);
 
 		} catch (DAOException | ClassNotFoundException | IOException e) {
 			e.printStackTrace();

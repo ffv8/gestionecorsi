@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.junit.jupiter.api.AfterAll;
@@ -68,7 +67,7 @@ class AdminFacadeTest {
 	// ---------------- Corso
 	@Test
 	@Order(1)
-	void testCreate() {
+	void testCreateCorso() {
 		try {
 			AdminFacade.getInstance().createCorso(corso1);
 			System.out.println("Creato corso1");
@@ -85,7 +84,7 @@ class AdminFacadeTest {
 
 	@Test
 	@Order(2)
-	void testGetByID() {
+	void testGetCorsoByID() {
 		try {
 			Corso c = AdminFacade.getInstance().getCorsoByID(corso1.getCodCorso());
 			System.out.printf("  %s, %s\n", c.getNomeCorso(), c.getAulaCorso());
@@ -99,7 +98,7 @@ class AdminFacadeTest {
 
 	@Test
 	@Order(3)
-	void testGetAll() {
+	void testGetCorsi() {
 		try {
 			Corso[] corsi = AdminFacade.getInstance().getCorsi();
 			assertNotNull(corsi);
@@ -112,10 +111,10 @@ class AdminFacadeTest {
 
 	@Test
 	@Order(4)
-	void testGetInizioUltimoCorso() {
+	void testGetUltimoCorso() {
 		try {
-			Date data = AdminFacade.getInstance().getInizioUltimoCorso();
-			assertNotNull(data);
+			Corso corso = AdminFacade.getInstance().getUltimoCorso();
+			assertNotNull(corso);
 
 		} catch (DAOException | ClassNotFoundException | IOException e) {
 			e.printStackTrace();
@@ -152,7 +151,7 @@ class AdminFacadeTest {
 
 	@Test
 	@Order(7)
-	void testDelete() {
+	void testDeleteCorso() {
 		try {
 			AdminFacade.getInstance().deleteCorso(corso1.getCodCorso());
 			System.out.println("Eliminato corso1");

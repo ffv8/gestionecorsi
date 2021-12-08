@@ -4,7 +4,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Date;
 
 import com.gestionecorsi.architecture.dao.CorsoDAO;
 import com.gestionecorsi.architecture.dao.DAOException;
@@ -30,6 +29,7 @@ public class CorsoBC {
 		conn = DBAccess.getConnection();
 		try {
 			model.setCodCorso(idGen.getNextID());
+			// TODO trim eventuali spazi iniziali e finali nei commenti
 			CorsoDAO.getFactory().create(conn, model);
 
 		} catch (SQLException sql) {
@@ -77,11 +77,11 @@ public class CorsoBC {
 		}
 	}
 
-	public Date getInizioUltimoCorso()
+	public Corso getUltimoCorso()
 			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
 		conn = DBAccess.getConnection();
 		try {
-			return CorsoDAO.getFactory().getInizioUltimoCorso(conn);
+			return CorsoDAO.getFactory().getUltimoCorso(conn);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		} finally {
