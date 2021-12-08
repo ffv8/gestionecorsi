@@ -10,38 +10,43 @@ import com.gestionecorsi.architecture.dao.DocenteDAO;
 import com.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.gestionecorsi.businesscomponent.model.Docente;
 
-//TODO chiudere connessione per ogni metodo
 public class DocenteBC {
 	private Connection conn;
-	
-	public DocenteBC() 
-			throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
-		
-		conn = DBAccess.getConnection();
+
+	public DocenteBC() throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
+
 	}
-	
-	public Docente getByID(long codDocente) throws DAOException {
+
+	public Docente getByID(long codDocente)
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		conn = DBAccess.getConnection();
 		try {
 			return DocenteDAO.getFactory().getById(conn, codDocente);
-		} catch(DAOException e) {
+		} catch (DAOException e) {
 			throw new DAOException(e);
+		} finally {
+			DBAccess.closeConnection();
 		}
 	}
-	
-	public Docente getDocentePiuCorsi() throws DAOException {
+
+	public Docente getDocentePiuCorsi()
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		conn = DBAccess.getConnection();
 		try {
 			Docente[] docenti = DocenteDAO.getFactory().getAll(conn);
 			Docente docente = docenti[0];
 			StringTokenizer tokenizer = new StringTokenizer(docente.getCvDocente(), ",");
 			int piuCorsi = tokenizer.countTokens();
-			for(int i=1; i<docenti.length; i++) {	
+			for (int i = 1; i < docenti.length; i++) {
 				tokenizer = new StringTokenizer(docenti[i].getCvDocente(), ",");
-				if(piuCorsi < tokenizer.countTokens())
+				if (piuCorsi < tokenizer.countTokens())
 					docente = docenti[i];
 			}
 			return docente;
-		} catch(DAOException e) {
+		} catch (DAOException e) {
 			throw new DAOException(e);
+		} finally {
+			DBAccess.closeConnection();
 		}
 	}
 }

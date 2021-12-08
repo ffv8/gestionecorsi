@@ -13,7 +13,6 @@ import com.gestionecorsi.businesscomponent.model.Corsista;
 
 /*autore Carraro Federico*/
 
-//TODO chiudere connessione per ogni metodo
 public class CorsistaBC {
 	
 	private Connection conn;
@@ -21,7 +20,6 @@ public class CorsistaBC {
 	
 	public CorsistaBC() throws ClassNotFoundException, DAOException, FileNotFoundException, IOException
 	{
-		conn=DBAccess.getConnection();/*apro la connessione*/
 		idGen=CorsistaIDGenerator.getInstance();/*creo la sequenza*/
 		
 	}
@@ -29,7 +27,7 @@ public class CorsistaBC {
 	
 	public void create(Corsista model) throws DAOException, ClassNotFoundException, IOException
 	{
-		
+		conn = DBAccess.getConnection();
 		try
 		{
 			/*creo il corsista da zero richiamando il metodo dal DAO*/
@@ -40,14 +38,17 @@ public class CorsistaBC {
 		{
 			throw new DAOException(sql);
 			
+		} finally {
+			DBAccess.closeConnection();
 		}
 		
 	}
 	
 	
 	
-	public Corsista[] getAll() throws DAOException
+	public Corsista[] getAll() throws DAOException, ClassNotFoundException, FileNotFoundException, IOException
 	{
+		conn = DBAccess.getConnection();
 		Corsista[] corsisti = null;
 		try
 		{
@@ -58,6 +59,8 @@ public class CorsistaBC {
 		{
 			throw new DAOException(sql);
 			
+		} finally {
+			DBAccess.closeConnection();
 		}
 		
 		return corsisti;
@@ -65,8 +68,9 @@ public class CorsistaBC {
 		
 	}
 	
-	public Corsista getByID(long codCorsista) throws DAOException
+	public Corsista getByID(long codCorsista) throws DAOException, ClassNotFoundException, FileNotFoundException, IOException
 	{
+		conn = DBAccess.getConnection();
 		try
 		{
 			return CorsistaDAO.getFactory().getByID(conn, codCorsista);
@@ -77,6 +81,8 @@ public class CorsistaBC {
 		{
 			throw new DAOException(sql);
 			
+		} finally {
+			DBAccess.closeConnection();
 		}
 		
 	}

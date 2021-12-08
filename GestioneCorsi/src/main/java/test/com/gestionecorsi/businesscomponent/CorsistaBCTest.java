@@ -93,7 +93,7 @@ class CorsistaBCTest {
 			
 				
 		} 
-		catch (DAOException e) {
+		catch (DAOException | ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 			fail(e.getMessage());
 			
@@ -115,7 +115,7 @@ class CorsistaBCTest {
 				
 			}
 			} 
-			catch (DAOException e) {
+			catch (DAOException | ClassNotFoundException | IOException e) {
 				e.printStackTrace();
 				fail(e.getMessage());
 				

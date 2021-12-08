@@ -10,19 +10,22 @@ import com.gestionecorsi.architecture.dao.DAOException;
 import com.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.gestionecorsi.businesscomponent.model.Amministratore;
 
-// TODO chiudere connessione per ogni metodo
 public class AmministratoreBC {
 	private Connection conn;
 
 	public AmministratoreBC() throws ClassNotFoundException, DAOException, FileNotFoundException, IOException {
-		conn = DBAccess.getConnection();
+
 	}
 
-	public Amministratore getById(long id) throws DAOException {
+	public Amministratore getById(long id)
+			throws DAOException, ClassNotFoundException, FileNotFoundException, IOException {
+		conn = DBAccess.getConnection();
 		try {
 			return AmministratoreDAO.getFactory().getById(conn, id);
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
+		} finally {
+			DBAccess.closeConnection();
 		}
 	}
 }
