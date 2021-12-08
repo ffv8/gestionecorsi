@@ -13,6 +13,7 @@ import com.gestionecorsi.businesscomponent.model.Corsista;
 
 /*autore Carraro Federico*/
 
+//TODO chiudere connessione per ogni metodo
 public class CorsistaBC {
 	
 	private Connection conn;

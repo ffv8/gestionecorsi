@@ -10,6 +10,7 @@ import com.gestionecorsi.architecture.dao.DocenteDAO;
 import com.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.gestionecorsi.businesscomponent.model.Docente;
 
+//TODO chiudere connessione per ogni metodo
 public class DocenteBC {
 	private Connection conn;
 	

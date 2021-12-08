@@ -15,6 +15,7 @@ import com.gestionecorsi.businesscomponent.model.Corsista;
 import com.gestionecorsi.businesscomponent.model.Corso;
 import com.gestionecorsi.businesscomponent.model.Iscrizione;
 
+//TODO chiudere connessione per ogni metodo
 public class IscrizioneBC {
 	private Connection conn;
 	
